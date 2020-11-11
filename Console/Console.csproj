@@ -10,8 +10,13 @@
     <Compile Remove="Input\ThreadInfo.cs" />
     <Compile Remove="Input\Tracer.cs" />
     <Compile Remove="Input\TraceResult.cs" />
+    <Compile Remove="Output\MethodInfoTest.cs" />
     <Compile Remove="Output\MethodInfoTests.cs" />
+    <Compile Remove="Output\ThreadInfoTest.cs" />
     <Compile Remove="Output\ThreadInfoTests.cs" />
+    <Compile Remove="Output\TraceResultTest.cs" />
+    <Compile Remove="Output\TraceResultTests.cs" />
+    <Compile Remove="Output\TracerTest.cs" />
     <Compile Remove="Output\TracerTests.cs" />
   </ItemGroup>
 
@@ -20,12 +25,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Input\MethodInfo.cs" />
-    <Resource Include="Input\ThreadInfo.cs" />
-    <Resource Include="Input\Tracer.cs" />
-    <Resource Include="Input\TraceResult.cs" />
+    <Resource Include="Output\MethodInfoTest.cs" />
     <Resource Include="Output\MethodInfoTests.cs" />
+    <Resource Include="Output\ThreadInfoTest.cs" />
     <Resource Include="Output\ThreadInfoTests.cs" />
+    <Resource Include="Output\TraceResultTest.cs" />
+    <Resource Include="Output\TraceResultTests.cs" />
+    <Resource Include="Output\TracerTest.cs" />
     <Resource Include="Output\TracerTests.cs" />
   </ItemGroup>
 

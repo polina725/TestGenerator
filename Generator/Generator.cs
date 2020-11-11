@@ -11,7 +11,6 @@ namespace Generator
 {
     public class Generator
     {
-        private List<GeneratedFileInfo> list = new List<GeneratedFileInfo>();
         private string outputFolder;
 
         public Generator(string outputFolder)
@@ -21,6 +20,7 @@ namespace Generator
 
         public List<GeneratedFileInfo> AnalyseFile(string sourceCode)
         {
+            List<GeneratedFileInfo> list = new List<GeneratedFileInfo>();
             SyntaxNode root = CSharpSyntaxTree.ParseText(sourceCode).GetRoot();
             foreach (ClassDeclarationSyntax cl in root.DescendantNodes().OfType<ClassDeclarationSyntax>())
             {
@@ -54,7 +54,6 @@ namespace Generator
         {
             AttributeSyntax attr = Attribute(ParseName("TestClass"));
             ClassDeclarationSyntax testClass = ClassDeclaration(className + "Test").AddModifiers(Token(SyntaxKind.PublicKeyword));
-            File.WriteAllText($"{className}.cs", testClass.GetText().ToString());
             return testClass; 
         }
 

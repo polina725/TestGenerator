@@ -11,9 +11,10 @@ namespace ConsoleApp
         private static string outputFolderPath = "..\\..\\..\\Output";
         private static string inputFolderParh = "..\\..\\..\\Input";
 
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             Generator.Generator gen = new Generator.Generator(outputFolderPath);
+            Generator.Generator gen1 = new Generator.Generator(outputFolderPath);
             ExecutionDataflowBlockOptions options = new ExecutionDataflowBlockOptions { MaxDegreeOfParallelism = 3 };
             TransformBlock<string,string> getInputCode = new TransformBlock<string, string>
             (
@@ -29,14 +30,13 @@ namespace ConsoleApp
             
             ActionBlock<Generator.GeneratedFileInfo> saveTests = new ActionBlock<Generator.GeneratedFileInfo>
             (
-                async testsFile => await File.WriteAllTextAsync(testsFile.FullFileName,testsFile.SourceCode),
+                async testsFile => { await File.WriteAllTextAsync(testsFile.FullFileName, testsFile.SourceCode); },
                 options
             );
 
             DataflowLinkOptions linkOptions = new DataflowLinkOptions { PropagateCompletion = true };
             getInputCode.LinkTo(createTests, linkOptions);
             createTests.LinkTo(saveTests, linkOptions);
-          //  saveTests.LinkTo(findReversedWords, linkOptions);
 
             string[] filePaths = Directory.GetFiles(inputFolderParh);
            
@@ -46,8 +46,7 @@ namespace ConsoleApp
                     getInputCode.Post(filePath);
             }
             getInputCode.Complete();
-           // createTests.Completion.Wait();
-            saveTests.Completion.Wait();
+           saveTests.Completion.Wait();
         }
     }
 }
