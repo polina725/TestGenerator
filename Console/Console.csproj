@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Input\MethodInfo.cs" />
+    <Compile Remove="Input\ThreadInfo.cs" />
+    <Compile Remove="Input\Tracer.cs" />
+    <Compile Remove="Input\TraceResult.cs" />
+    <Compile Remove="Output\MethodInfoTests.cs" />
+    <Compile Remove="Output\ThreadInfoTests.cs" />
+    <Compile Remove="Output\TracerTests.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Generator\Generator.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Input\MethodInfo.cs" />
+    <Resource Include="Input\ThreadInfo.cs" />
+    <Resource Include="Input\Tracer.cs" />
+    <Resource Include="Input\TraceResult.cs" />
+    <Resource Include="Output\MethodInfoTests.cs" />
+    <Resource Include="Output\ThreadInfoTests.cs" />
+    <Resource Include="Output\TracerTests.cs" />
+  </ItemGroup>
+
+</Project>
