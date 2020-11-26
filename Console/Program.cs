@@ -11,7 +11,7 @@ namespace ConsoleApp
         private static string outputFolderPath = "..\\..\\..\\Output";
         private static string inputFolderParh = "..\\..\\..\\Input";
 
-        static async Task Main(string[] args)
+        static void Main(string[] args)
         {
             Generator.Generator gen = new Generator.Generator(outputFolderPath);
             Generator.Generator gen1 = new Generator.Generator(outputFolderPath);
